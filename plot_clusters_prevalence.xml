@@ -1,11 +1,14 @@
-<tool id="plot_clusters" name="Plot Clusters" version="1.0">
+<tool id="plot_cellular_prevalence" name="Cluster Prevalence Over Samples" version="1.0">
+    <description>
+        Plot the prevalence of clusters over sample from the TSV output of PyClone-VI.
+    </description>
     <requirements>
         <requirement type="package" version="1.2.5">pandas</requirement>
         <requirement type="package" version="3.4.3">matplotlib</requirement>
         <requirement type="package" version="0.11.2">seaborn</requirement>
     </requirements>
     <command>
-        export MPLCONFIGDIR=${__tool_directory__}/mpl_config; python ${__tool_directory__}/plot_clusters.py "$input_file"
+        export MPLCONFIGDIR=${__tool_directory__}/mpl_config; python ${__tool_directory__}/plot_clusters_prevalence.py "$input_file"
     </command>
     <inputs>
         <param name="input_file" type="data" format="tabular" label="Input File"/>

@@ -5,7 +5,7 @@ import seaborn as sns
 import os
 
 if len(sys.argv) != 2:
-    raise ValueError("Usage: python plot_clusters.py <input_file>")
+    raise ValueError("Usage: python plot_clusters_prevalence.py <input_file>")
 
 input_file = sys.argv[1]
 output_file = "outfile.png"
