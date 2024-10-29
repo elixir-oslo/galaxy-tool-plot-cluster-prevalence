@@ -8,7 +8,7 @@ if len(sys.argv) != 2:
     raise ValueError("Usage: python plot_clusters_prevalence.py <input_file>")
 
 input_file = sys.argv[1]
-output_file = "outfile.png"
+output_file = os.path.splitext(input_file)[0] + ".png"
 
 # Load PyClone-VI results
 df = pd.read_csv(input_file, sep='\t')
