@@ -8,17 +8,18 @@
         <requirement type="package" version="0.11.2">seaborn</requirement>
     </requirements>
     <command interpreter="python">
-        #export MPLCONFIGDIR=${__tool_directory__}/mpl_config
         #set $timepoints_str = ",".join(["%s,%s" % (tp['event_id'], tp['start_date']) for tp in $timepoints])
         ${__tool_directory__}/plot_clusters_prevalence.py --input_file "$input_file" --timepoints "$timepoints_str"
     </command>
+    <environment_variables>
+        <environment_variable name="MPLCONFIGDIR">${__tool_directory__}/mpl_config</environment_variable>
+    </environment_variables>
     <inputs>
         <param name="input_file" type="data" format="tabular" label="Input File"/>
         <repeat name="timepoints" title="Annotate timepoint" help="Annotate every timepoints of experiments. Timepoints without annotation will not be plotted!!" min="1">
             <param name="event_id" type="text" label="Event ID" help="Must match an ID from the Pyclone-VI TSV output" optional="false" />
             <param name="start_date" type="text" label="Start Date" help="In days from the start point/birth" optional="false" />
         </repeat>
-
     </inputs>
     <outputs>
         <data format="png" name="output_file" from_work_dir="output.png" label="${tool.name}_on_${on_string}.png"/>
