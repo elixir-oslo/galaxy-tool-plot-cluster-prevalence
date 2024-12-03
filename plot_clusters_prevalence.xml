@@ -8,6 +8,7 @@
         <requirement type="package" version="0.11.2">seaborn</requirement>
     </requirements>
     <command interpreter="python">
+        #export MPLCONFIGDIR=${__tool_directory__}/mpl_config
         #set $timepoints_str = ",".join(["%s,%s" % (tp['event_id'], tp['start_date']) for tp in $timepoints])
         ${__tool_directory__}/plot_clusters_prevalence.py --input_file "$input_file" --timepoints "$timepoints_str"
     </command>
