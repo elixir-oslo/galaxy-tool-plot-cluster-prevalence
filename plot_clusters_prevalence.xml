@@ -9,7 +9,7 @@
     </requirements>
     <command interpreter="python">
         #set $timepoints_str = ",".join(["%s,%s" % (tp['event_id'], tp['start_date']) for tp in $timepoints])
-        ${__tool_directory__}/plot_clusters_prevalence.py --input_file "$input_file --timepoints "$timepoints_str"
+        ${__tool_directory__}/plot_clusters_prevalence.py --input_file "$input_file" --timepoints "$timepoints_str"
     </command>
     <inputs>
         <param name="input_file" type="data" format="tabular" label="Input File"/>
